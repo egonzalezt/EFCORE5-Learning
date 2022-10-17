@@ -112,3 +112,7 @@ id                               name              safeName          applied
 20221017191021_manytomanypayload manytomanypayload manytomanypayload   False
 ```
 
+![image](https://user-images.githubusercontent.com/53051438/196265581-5cae69d4-d6e8-40b3-8b87-5e0c4043676a.png)
+
+Ef core creates the new table with the extra attribute DateJoined
+
