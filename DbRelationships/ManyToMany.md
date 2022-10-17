@@ -29,3 +29,18 @@ As the definition of many-to-many relationships requires a weak table, EF CORE c
 "PICTURE 004 CREATE SOMETHING SIMILAR"
 
 Is possible to make this relationship more explicit by creating the Join table or Weak table but is optional.
+
+## Code
+
+The current database just have the basic relationship between Samurai and Quote 
+
+![image](https://user-images.githubusercontent.com/53051438/196252094-18c1ea7d-877c-44f2-9cfb-a4de77d1444f.png)
+
+with the new code about battles run the migrations command 
+
+* `add-migration manytomanyexample`
+* `update-database`
+
+![image](https://user-images.githubusercontent.com/53051438/196252631-6c4e2d36-3070-45c4-889a-c1b512ceea58.png)
+
+As expected, EF CORE automatically creates the weak table BattleSamurai
