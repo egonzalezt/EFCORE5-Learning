@@ -30,3 +30,8 @@ EF CORE is an ORM that is designed to reduce the friction between how data is st
 ORM infers that classes or objects have a similar structure EF CORE has a mapping layer that gives us a lot more flexibility in how to get from objects to tables and object properties to table columns.
 
 EF CORE can be connected with a lot of different database providers like Mariadb, Mysql, MS SQL, PostgresSQL, etc. 
+
+
+# Suggestions? 
+
+Feel free to make PR with new suggestions or recommendations about this documentation. Any recommendation will be received and analyzed thanks :)
