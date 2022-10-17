@@ -52,4 +52,6 @@ Additional Considerations
 
 ### Migration
 
-Finally, create a new migration and apply it to the database creating a new table called Horse.
+Finally, create a new migration and apply it to the database creating a new table called Horse, the migration is saved on a file called `20221017195241_onetoonehorse.cs`.
+
+![image](https://user-images.githubusercontent.com/53051438/196270848-15a57902-45af-404f-9cde-d9d2de84a164.png)
