@@ -19,3 +19,14 @@ How you define your Dbcontexts is important to how EF CORE treats your data at r
 
 _context.Database.EnsureCreated();
 check if the database exists if not create the database
+
+## Notes 
+
+For practical uses on the EfcoreContext.cs will be located the database connection string do not use this practice on your real application for security reasons
+
+```csharp
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+{
+  optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=SamuraiDb;Trusted_Connection=True;");
+}
+```
