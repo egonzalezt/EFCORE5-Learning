@@ -1,12 +1,12 @@
 # Many-To-Many Payload
 
-When we need to add more data to the relationship between samurai and battle we need a place to store that new data for that reason we need to create a class that represent that relationship BattleSamurai.
+When we need to add more data to the relationship between samurai and battle we need a place to store that new data for that reason we need to create a class that represents that relationship BattleSamurai.
 
 ## EF CORE
 
 ### First way to implement
 
-For the BattleSamurai we need to know the date of the battle for that reason we need to create the weak entity called BattleSamurai 
+For the BattleSamurai we need to know the date of the battle for that reason we need to create a weak entity called BattleSamurai 
 
 ```csharp
 public class BattleSamurai
@@ -16,9 +16,9 @@ public class BattleSamurai
     public DateTime DateJoined { get; set; }
 }
 ```
-here we can add the new property DateJoined this additional data in the Join is refereed as a Payload, using this approach is required to add some code on the method OnModelBuilding with Fluent API
+here we can add the new property DateJoined this additional data in the Join is referred to as a Payload, using this approach is required to add some code on the method OnModelBuilding with Fluent API
 
-A many to many relationship is described with methods named HasMany and WithMany
+A many-to-many relationship is described with methods named HasMany and WithMany
 
 ```csharp 
 modelBuilder.Entity<End1>()
@@ -29,8 +29,7 @@ Express many to many using HasMany/WithMany
 
 End#1 HAS MANY End#2 via the list navigation property 
 
-That other end also is WITH MANY of End#1, represented by E1 list property start with the either end. There is no difference
-
+That other end also is WITH MANY of End#1, represented by E1 list property starting with either end. There is no difference.
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -46,7 +45,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 }
 ```
 
-Lets see how it works
+Let's see how it works
 
 * `modelBuilder.Entity<Samurai>()` model builder points to the generic entity of Samurai 
 
@@ -62,9 +61,9 @@ this chunk of code is talking about the particular relationship of BattleSamurai
      bs => bs.HasOne<Samurai>().WithMany())
 ```
 
-With the piece of code we are indicating to EF CORE instead of inferring the join (weak table) there is a class that perform the join and is required to express the relationship between BattleSamurai and the other two classes to refer the joining in this case Battle and Samurai.
+With the piece of code we are indicating to EF CORE instead of inferring the join (weak table) there is a class that performs the join and is required to express the relationship between BattleSamurai and the other two classes to refer to the joining in this case Battle and Samurai.
 
-At this point the operation is completed but the the new Payload we need to populate it and thats why there are two new expressions
+At this point the operation is completed but the new Payload we need to populate and that's why there are two new expressions
 
 * `.Property(bs => bs.DateJoined).HasDefaultValueSql("getdate()")` express about the property DateJoined apply with HasDefaultValueSql the T-SQL Method `getdate()`
 
@@ -96,13 +95,13 @@ modelBuilder.Entity<BattleSamurai>()
     .Property(bs => bs.BattleId).HasColumnName("BattlesBattleId")    
 ```
 
-EF CORE Know that BattleSamurai class map to BattleSamurai table but what happens if the class is renamed to BattleParticipant it's required to indicate the table to map
+EF CORE Know that the BattleSamurai class map to the BattleSamurai table but what happens if the class is renamed to BattleParticipant it's required to indicate the table to map
 
 ```csharp
 modelBuilder.Entity<BattleParticipant>().ToTable("BattleSamurai")
 ```
 
-if you wanna look at the migrations history and see which migration has been applied run the command `get-migration`
+if you wanna look at the history of the migration and see which migration has been applied run the command `get-migration`
 
 ```bash
 id                               name              safeName          applied
@@ -114,5 +113,5 @@ id                               name              safeName          applied
 
 ![image](https://user-images.githubusercontent.com/53051438/196265581-5cae69d4-d6e8-40b3-8b87-5e0c4043676a.png)
 
-Ef core creates the new table with the extra attribute DateJoined
+EF CORE creates the new table with the extra attribute DateJoined
 

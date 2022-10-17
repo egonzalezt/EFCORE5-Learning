@@ -32,7 +32,7 @@ Is possible to make this relationship more explicit by creating the Join table o
 
 ## Code
 
-The current database just have the basic relationship between Samurai and Quote 
+The current database just has the basic relationship between Samurai and Quote 
 
 ![image](https://user-images.githubusercontent.com/53051438/196252094-18c1ea7d-877c-44f2-9cfb-a4de77d1444f.png)
 
