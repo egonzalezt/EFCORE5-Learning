@@ -1,0 +1,21 @@
+{
+    "grammarly.selectors": [
+        {
+            "language": "markdown",
+            "scheme": "file"
+        }
+    ],
+    "cSpell.words": [
+        "bijective",
+        "Dbcontext",
+        "Dbcontexts",
+        "Efcore",
+        "getdate",
+        "manytomanyexample",
+        "manytomanypayload",
+        "nvarchar",
+        "onetoonehorse",
+        "SQLEXPRESS",
+        "SSMS"
+    ]
+}

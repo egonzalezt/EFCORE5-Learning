@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EfcoreApp.Domain\EfcoreApp.Domain.csproj" />
+    <ProjectReference Include="..\EfcoreApp.Infrastructure\EfcoreApp.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

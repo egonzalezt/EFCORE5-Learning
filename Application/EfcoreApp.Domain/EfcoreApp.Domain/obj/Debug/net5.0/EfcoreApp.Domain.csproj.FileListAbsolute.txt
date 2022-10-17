@@ -1,0 +1,12 @@
+C:\Users\esteb\source\repos\EfcoreApp.Domain\EfcoreApp.Domain\bin\Debug\net5.0\EfcoreApp.Domain.deps.json
+C:\Users\esteb\source\repos\EfcoreApp.Domain\EfcoreApp.Domain\bin\Debug\net5.0\EfcoreApp.Domain.dll
+C:\Users\esteb\source\repos\EfcoreApp.Domain\EfcoreApp.Domain\bin\Debug\net5.0\EfcoreApp.Domain.pdb
+C:\Users\esteb\source\repos\EfcoreApp.Domain\EfcoreApp.Domain\obj\Debug\net5.0\EfcoreApp.Domain.csproj.AssemblyReference.cache
+C:\Users\esteb\source\repos\EfcoreApp.Domain\EfcoreApp.Domain\obj\Debug\net5.0\EfcoreApp.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\esteb\source\repos\EfcoreApp.Domain\EfcoreApp.Domain\obj\Debug\net5.0\EfcoreApp.Domain.AssemblyInfoInputs.cache
+C:\Users\esteb\source\repos\EfcoreApp.Domain\EfcoreApp.Domain\obj\Debug\net5.0\EfcoreApp.Domain.AssemblyInfo.cs
+C:\Users\esteb\source\repos\EfcoreApp.Domain\EfcoreApp.Domain\obj\Debug\net5.0\EfcoreApp.Domain.csproj.CoreCompileInputs.cache
+C:\Users\esteb\source\repos\EfcoreApp.Domain\EfcoreApp.Domain\obj\Debug\net5.0\EfcoreApp.Domain.dll
+C:\Users\esteb\source\repos\EfcoreApp.Domain\EfcoreApp.Domain\obj\Debug\net5.0\refint\EfcoreApp.Domain.dll
+C:\Users\esteb\source\repos\EfcoreApp.Domain\EfcoreApp.Domain\obj\Debug\net5.0\EfcoreApp.Domain.pdb
+C:\Users\esteb\source\repos\EfcoreApp.Domain\EfcoreApp.Domain\obj\Debug\net5.0\ref\EfcoreApp.Domain.dll
