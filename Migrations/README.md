@@ -1,3 +1,5 @@
+# Migrations
+
 EF CORE uses migrations to manage how you update and control your database history
 
 ## EF CORE migration
