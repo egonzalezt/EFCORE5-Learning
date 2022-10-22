@@ -35,3 +35,5 @@ var samurais = _context.Samurais
                 .TagWith("Getting all the samurais saved on the database")
                 .ToList();
 ```
+![image](https://user-images.githubusercontent.com/53051438/197365740-0566d74e-ed96-4460-900d-e50b4c7e29a5.png)
+
