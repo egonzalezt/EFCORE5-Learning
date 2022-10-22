@@ -2,6 +2,8 @@
 using System.Linq;
 using EfcoreApp.Domain;
 using EfcoreApp.Infrastructure.EntityFramework;
+using Microsoft.EntityFrameworkCore;
+
 namespace EfcoreApp.UI
 {
     class Program
@@ -26,7 +28,9 @@ namespace EfcoreApp.UI
         }
         private static void GetSamurais(string text)
         {
-            var samurais = _context.Samurais.ToList();
+            var samurais = _context.Samurais
+                .TagWith("Getting all the samurais saved on the database")
+                .ToList();
             Console.WriteLine($"{text}: Samurai count is {samurais.Count}");
             foreach (var samurai in samurais)
             {

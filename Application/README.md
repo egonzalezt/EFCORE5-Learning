@@ -22,7 +22,7 @@ check if the database exists if not create the database
 
 ## Notes 
 
-For practical uses on the EfcoreContext.cs will be located the database connection string do not use this practice on your real application for security reasons
+For practical uses on the EfcoreContext.cs will be located the database connection string does not use this practice on your real application for security reasons
 
 ```csharp
 protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

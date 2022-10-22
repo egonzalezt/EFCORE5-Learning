@@ -10,3 +10,15 @@ C:\Users\esteb\source\repos\EfcoreApp.Domain\EfcoreApp.Domain\obj\Debug\net5.0\E
 C:\Users\esteb\source\repos\EfcoreApp.Domain\EfcoreApp.Domain\obj\Debug\net5.0\refint\EfcoreApp.Domain.dll
 C:\Users\esteb\source\repos\EfcoreApp.Domain\EfcoreApp.Domain\obj\Debug\net5.0\EfcoreApp.Domain.pdb
 C:\Users\esteb\source\repos\EfcoreApp.Domain\EfcoreApp.Domain\obj\Debug\net5.0\ref\EfcoreApp.Domain.dll
+J:\Documents\GitHub\EFCORE5-Learning\Application\EfcoreApp.Domain\EfcoreApp.Domain\bin\Debug\net5.0\EfcoreApp.Domain.deps.json
+J:\Documents\GitHub\EFCORE5-Learning\Application\EfcoreApp.Domain\EfcoreApp.Domain\bin\Debug\net5.0\EfcoreApp.Domain.dll
+J:\Documents\GitHub\EFCORE5-Learning\Application\EfcoreApp.Domain\EfcoreApp.Domain\bin\Debug\net5.0\EfcoreApp.Domain.pdb
+J:\Documents\GitHub\EFCORE5-Learning\Application\EfcoreApp.Domain\EfcoreApp.Domain\obj\Debug\net5.0\EfcoreApp.Domain.csproj.AssemblyReference.cache
+J:\Documents\GitHub\EFCORE5-Learning\Application\EfcoreApp.Domain\EfcoreApp.Domain\obj\Debug\net5.0\EfcoreApp.Domain.GeneratedMSBuildEditorConfig.editorconfig
+J:\Documents\GitHub\EFCORE5-Learning\Application\EfcoreApp.Domain\EfcoreApp.Domain\obj\Debug\net5.0\EfcoreApp.Domain.AssemblyInfoInputs.cache
+J:\Documents\GitHub\EFCORE5-Learning\Application\EfcoreApp.Domain\EfcoreApp.Domain\obj\Debug\net5.0\EfcoreApp.Domain.AssemblyInfo.cs
+J:\Documents\GitHub\EFCORE5-Learning\Application\EfcoreApp.Domain\EfcoreApp.Domain\obj\Debug\net5.0\EfcoreApp.Domain.csproj.CoreCompileInputs.cache
+J:\Documents\GitHub\EFCORE5-Learning\Application\EfcoreApp.Domain\EfcoreApp.Domain\obj\Debug\net5.0\EfcoreApp.Domain.dll
+J:\Documents\GitHub\EFCORE5-Learning\Application\EfcoreApp.Domain\EfcoreApp.Domain\obj\Debug\net5.0\refint\EfcoreApp.Domain.dll
+J:\Documents\GitHub\EFCORE5-Learning\Application\EfcoreApp.Domain\EfcoreApp.Domain\obj\Debug\net5.0\EfcoreApp.Domain.pdb
+J:\Documents\GitHub\EFCORE5-Learning\Application\EfcoreApp.Domain\EfcoreApp.Domain\obj\Debug\net5.0\ref\EfcoreApp.Domain.dll
