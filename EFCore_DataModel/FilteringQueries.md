@@ -19,3 +19,14 @@ this is the lambda expression `s => s.Name == "egonzalezt"` which has these comp
 filtering can be made with hard coded values like `s.Name == "egonzalezt"` or can be set into a new variable.
 
 using a variable EF CORE will parametrize that variable on the queries
+
+```csharp
+private static void QueryFilters()
+{
+  var filter = "egonzalezt";
+  var samurais = _context.Samurais
+    .Where(s => EF.Functions.Like(s.Name, filter)).ToList();
+}
+```
+
+![image](https://user-images.githubusercontent.com/53051438/197411592-a5162482-e499-41b7-ba2a-dbfe7b397b45.png)
