@@ -10,3 +10,4 @@ _context.SaveChanges();
 
 in this example, you get the first samurai store in your database and update it let's suppose that your first samurai has the name `egonzalezt` and you need to add the `San` on the name now our samurai name is `egonzaleztSan` but what occurs behind the query?
 
+![update](https://user-images.githubusercontent.com/53051438/197415400-7ef44481-3b9f-4db1-a49c-f42b15806ac1.png)
