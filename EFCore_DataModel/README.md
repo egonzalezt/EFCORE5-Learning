@@ -37,3 +37,65 @@ var samurais = _context.Samurais
 ```
 ![image](https://user-images.githubusercontent.com/53051438/197365740-0566d74e-ed96-4460-900d-e50b4c7e29a5.png)
 
+EF CORE adds a double dash to add these comments so you don't have to worry about a SQL injection attack.
+
+## Logging 
+
+Now using profiling tools like SQL Server Profiler is not always a good option but EF CORE can log their queries using .NET CORE: Microsoft.Extensions.Logging. Now the reason to add logging to .NET is to track and keep control of how EF CORE Build the different queries because if you have a battle of samurais with 1.000.000 or more samurais and you need just to get samurais with some characteristics is not a good idea that EF CORE create queries like this:
+
+```SQL
+SELECT * FROM BATTLES WHERE BATTLES.DATE == 24/09/1877
+``` 
+
+getting 1 million samurais may impact the performance of your application
+
+logging with console applications is required to add extra code on the dbcontext of the samurai application using applications that work on ASP.NET CORE logging is already built in but you will add just a little bit extra to the ASP.NET Core logic.
+
+but this can be [configured](https://www.entityframeworktutorial.net/efcore/logging-in-entityframework-core.aspx) there are different ways to log and depends on the target if you are using a library to log or the builtin options 
+
+[Microsoft Example](https://learn.microsoft.com/en-us/ef/core/logging-events-diagnostics/simple-logging)
+
+```csharp
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+{
+    optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=SamuraiDb;Trusted_Connection=True;")
+        .LogTo(Console.WriteLine);
+}
+```
+
+or 
+
+```csharp
+private StreamWriter _writer = new StreamWriter("EFCORELog.txt",append:true);
+
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+{
+    optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=SamuraiDb;Trusted_Connection=True;")
+        .LogTo(_writer.WriteLine);
+}
+```
+
+or
+
+```csharp
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+{
+    optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=SamuraiDb;Trusted_Connection=True;")
+        .LogTo(log => Debug.WriteLine(log));
+}
+```
+
+these examples log all the different information that EF CORE makes that could be unnecessary because maybe you need to log just the build queries or the error logs for that reason Microsoft provides different message categories [Documentation](https://learn.microsoft.com/en-us/ef/core/logging-events-diagnostics/simple-logging#message-categories)
+
+Finally, logging requires setting a level because logging your queries to the user could be not a good option because this makes your application more vulnerable, log queries are required in a developer environment [setup log levels](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/logging#configure-logging) and [types of log levels](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.logging.loglevel?view=dotnet-plat-ext-6.0)
+
+```csharp
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+{
+    optionsBuilder.UseSqlServer(" ")
+        .LogTo(Console.WriteLine, new[] {DbLoggerCategory.Database.Command.Name}, Microsoft.Extensions.Logging.LogLevel.Information );
+}
+```
+
+with this example this is the result:
+
