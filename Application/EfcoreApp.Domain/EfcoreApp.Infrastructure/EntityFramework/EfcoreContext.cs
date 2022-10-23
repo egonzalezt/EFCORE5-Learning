@@ -1,5 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using EfcoreApp.Domain;
+using System;
+
 namespace EfcoreApp.Infrastructure.EntityFramework
 {
     public class EfcoreContext : DbContext
@@ -10,7 +13,8 @@ namespace EfcoreApp.Infrastructure.EntityFramework
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=SamuraiDb;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=SamuraiDb;Trusted_Connection=True;")
+                .LogTo(Console.WriteLine, new[] {DbLoggerCategory.Database.Command.Name}, LogLevel.Information );
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -93,10 +93,35 @@ Finally, logging requires setting a level because logging your queries to the us
 protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 {
     optionsBuilder.UseSqlServer(" ")
-        .LogTo(Console.WriteLine, new[] {DbLoggerCategory.Database.Command.Name}, Microsoft.Extensions.Logging.LogLevel.Information );
+        .LogTo(Console.WriteLine, new[] {DbLoggerCategory.Database.Command.Name}, LogLevel.Information );
 }
 ```
 
 with this example this is the result:
 
 ![image](https://user-images.githubusercontent.com/53051438/197368976-e09e63a3-1869-4c62-b005-9143172fe1a6.png)
+
+### Logging features
+
+* Formatting
+* Detailed query error information
+* Filter on event types
+* What information goes in a log message
+* Show **Sensitive information** example parameters
+
+By **default** EF CORE **NEVER SHOWS SENSITIVE INFORMATION** unless you config EF CORE to show that sensitive data.
+
+By default: `[_name_0='?' (size = 4000)]`
+
+With OptionsBuilder
+
+```csharp
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+{
+    optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=SamuraiDb;Trusted_Connection=True;")
+        .LogTo(Console.WriteLine, new[] {DbLoggerCategory.Database.Command.Name}, LogLevel.Information )
+        .EnableSensitiveDataLogging();
+}
+```
+
+result: `[_name_0='egonzalezt' (size = 4000)]`
