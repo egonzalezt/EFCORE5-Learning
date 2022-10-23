@@ -29,4 +29,4 @@ private static void QueryFilters()
 }
 ```
 
-![image](https://user-images.githubusercontent.com/53051438/197411592-a5162482-e499-41b7-ba2a-dbfe7b397b45.png)
+![filter with parameters](https://user-images.githubusercontent.com/53051438/197411643-92cea4c0-8536-42ee-8adf-3d7ddad1a4ef.png)
