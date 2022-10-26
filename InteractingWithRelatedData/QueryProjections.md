@@ -49,3 +49,31 @@ var someProps = _context.Samurais.Select(s => new { s.Id, s.Name,
           SavedOfQuotes =  s.Quotes.Where(q => q.Text.Contains("saved"))
         }).ToList();
 ```
+
+## Entity Entry
+
+EF CORE can only track entities recognized by the DbContext, the anonymouse types itself can't be tracked because the context doesn't comprenhend that, but if it has properties that are recognized entity objects, they will be tracked
+
+```csharp
+var someProps = _context.Samurais.Select(s => new { Samurai = s, 
+          SavedOfQuotes =  s.Quotes.Where(q => q.Text.Contains("saved"))
+        }).ToList();
+```
+
+This query creates an anonymous type but are going to be tracked by the context because has properties that are recognized entity objects for that reason is possible to do this:
+
+```csharp
+var someProps = _context.Samurais.Select(s => new { Samurai = s, 
+          SavedOfQuotes =  s.Quotes.Where(q => q.Text.Contains("saved"))
+        }).ToList();
+var firstSamurai = someProps[0].Samurai.Name += " The Brave"; 
+```
+
+Modifying the name of the first samurai you will get = egonzalezt san The Brave and EF CORE will track these changes and if you make `SaveChanges()` EF CORE make the update of the samurai name
+
+Using quickwatch on debug mode these are the tracked objects and the first object is been mark as modified:
+
+![image](https://user-images.githubusercontent.com/53051438/198057867-690046da-874e-4b5d-99a7-34cb19d64699.png)
+
+
+
