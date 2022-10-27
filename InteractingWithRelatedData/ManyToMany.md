@@ -153,3 +153,5 @@ if(battleSamurai is not null)
   _context.SaveChanges();
 }
 ```
+
+with payload you dont need to call battles to get a filtered samurai and then modify its values and save its data
