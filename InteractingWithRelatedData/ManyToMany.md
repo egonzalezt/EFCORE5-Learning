@@ -88,3 +88,38 @@ these operations can be perform as a stored procedure or using a Many-To-Many pa
 
 ## Many-To-Many Payload
 
+First you need to add on your DbContext the mapping that indicates to EF CORE there is a entity that handle that relationships and make a new migration
+
+```csharp
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+  modelBuilder.Entity<Samurai>()
+              .HasMany(s => s.Battles)
+              .WithMany(b => b.Samurais)
+              .UsingEntity<BattleSamurai>
+                (bs => bs.HasOne<Battle>().WithMany(),
+                 bs => bs.HasOne<Samurai>().WithMany())
+              .Property(bs => bs.DateJoined)
+              .HasDefaultValueSql("getdate()");
+}
+```
+
+Migrating to explicit mapping won't impact the existing data even if the relationship is already implemented by ER CORE but there is one case that you could impact your existint data
+
+* The entity doesn't have the **same name** as the already created table if you dont speficy to Fluent API that the entity `QWERTBattleSamurai` is related to the table `BattleSamurai` **the migration will drop the table and create a new one.**
+
+  ![image](https://user-images.githubusercontent.com/53051438/198334591-077b23c1-4b3d-45ea-92c2-91d3eeca9b1e.png)
+
+  to solve that you need to specify to fluent that the entity `QWERTBattleSamurai` is gonna be mapped into `BattleSamurai` table
+
+  ```csharp
+  modelBuilder.Entity<QWERTBattleSamurai>().ToTable("BattleSamurai");
+  ```
+
+* Column renames 
+
+  This operation won't cause a data loss it just rename the columns.
+  
+  by default EF CORE with Many-To-Many relationship creates the attributes with this structure
+  
+  `<TableName><PkName>` => SamuraisId, BattlesBattleId
