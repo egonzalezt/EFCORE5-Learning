@@ -20,6 +20,8 @@ EF CORE infers a unique FK conbstrain for the samurai fk column in the database 
   ```
   
 * Disconnected Scenario
+  
+  using attach to just save the horse and set its id on the samurai and not update the entire object
 
   ```csharp
   var samurai = _context.Samruais.AsNoTracking().FirstOrDefault(s => s.Id == 5);
