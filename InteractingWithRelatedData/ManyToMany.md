@@ -59,3 +59,32 @@ this method use eager loading to get all samurais and all battles and process on
 if during the process occurus an exception EF CORE always uses transaction so all commited changes will be reverted.
 
 Take care with this approach if there is a lot of battles and a lot of samurais **this operation could impact on your application performance.**
+
+## Altering or Removing 
+
+Imagine that `Tokugawa Ieyasu` is on the `Battle of Nagashino` but he decides to left that battle and join to the `Battle of Anagewa`.
+
+the recommendation is to remove the original join between `Battle of Nagashino` and `Tokugawa Ieyasu` and then add a new join by `Battle of Anagewa` with `Tokugawa Ieyasu` and also thing what are the side effects from your business logic.
+
+```csharp
+var battleWithSamurai = _context.Battles
+                        .Include(b => b.Samurais.Where( s => s.Id == 12))
+                        .Single(s => s.BattleId == 1);
+
+var samurai = battleWithSamurai.Samurais[0];
+
+battleWithSamurai.Samurais.Remove(samurai);
+
+_context.SaveChanges();
+```
+
+![image](https://user-images.githubusercontent.com/53051438/198323595-2ec79fba-fd7d-49c5-af6f-39e069a5d579.png)
+
+### Beawere
+
+Take the battle and the samurai and then remove the samurai from the battle's samurais list because the context is unaware of the relationship so that means that nothing happens the samurai still related with that battle
+
+these operations can be perform as a stored procedure or using a Many-To-Many payload mapping using FluentApi, using the last option you just get the related data and remove the relationship 
+
+## Many-To-Many Payload
+
