@@ -104,6 +104,8 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 }
 ```
 
+### Beawere
+
 Migrating to explicit mapping won't impact the existing data even if the relationship is already implemented by ER CORE but there is one case that you could impact your existint data
 
 * The entity doesn't have the **same name** as the already created table if you dont speficy to Fluent API that the entity `QWERTBattleSamurai` is related to the table `BattleSamurai` **the migration will drop the table and create a new one.**
