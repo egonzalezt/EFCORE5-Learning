@@ -125,3 +125,31 @@ Migrating to explicit mapping won't impact the existing data even if the relatio
   by default EF CORE with Many-To-Many relationship creates the attributes with this structure
   
   `<TableName><PkName>` => SamuraisId, BattlesBattleId
+
+### Working with Many-To-Many Payload
+
+working with this strategy does not affect your current code, that means if you use the EF CORE Many-To-Many implementation this does not affect your current LINQ or DbContext queries this mean that doesn't brean your existing code.
+
+with this startegy you can made your code more simpler and shorter, also keep in mind that BattleSamurai is not part of the DbSet so the way to get these data is using `_context.Set<>()`
+
+```csharp
+var battleSamurai = _context.Set<BattleSamurai>()
+    .SingleOrDefault(bs => bs.BattleId == 1 && bs.SamuraiId == 10);
+if(battleSamurai is not null)
+{
+  _context.Remove(battleSamurai);
+  _context.SaveChanges();
+}
+```
+
+with payload you can edit the payload data in a many-to-many join using `Set<>` modify and save
+
+```csharp
+var battleSamurai.= _context.Set<BattleSamurai>()
+    .SingleOrDefault(bs => bs.BattleId == 1 && bs.SamuraiId == 10);
+if(battleSamurai is not null)
+{
+  battleSamurai.DataJoined = DateTime.Now;
+  _context.SaveChanges();
+}
+```
