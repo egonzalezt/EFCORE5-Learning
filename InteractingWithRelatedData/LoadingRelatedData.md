@@ -46,3 +46,37 @@ var savedQuotes = context.Entry(samurai).
     .Where(q => q.Quote.Contains("saved")
     .ToList();
 ```
+
+### Example
+
+Before running the code on our database we just get these samurais 
+
+![image](https://user-images.githubusercontent.com/53051438/198177556-0765b883-2e14-468d-be7e-3cb7aaed4111.png)
+
+running this code we add egonzalezt San horse
+
+![image](https://user-images.githubusercontent.com/53051438/198178257-3917e510-78ef-42e6-8907-4b02288df52f.png)
+
+```csharp
+_context.Set<Horse>().Add(new Horse { SamuraiId = 1, Name = "Mr. Ed" });
+_context.SaveChanges();
+_context.ChangeTracker.Clear();
+```
+
+then we clean the context and get again just the first samurai (egonzalezt San) but there is a problem where is the horse? at this moment Quick Watch show us that `Horse = null`
+
+![image](https://user-images.githubusercontent.com/53051438/198177849-21c6916e-d1c9-4537-95af-0eb2ed846f4d.png)
+
+```csharp
+var samurai = _context.Samurais.Find(1);
+```
+
+the way to get the quotes and the horse is using explicit load
+
+```csharp
+_context.Entry(samurai).Collection(s => s.Quotes).Load();
+_context.Entry(samurai).Reference(s => s.Horse).Load();
+```
+and now egonzalezt San get their horse reference
+
+![image](https://user-images.githubusercontent.com/53051438/198178187-fe83598f-1f57-4d63-9915-4a417fb448cc.png)
