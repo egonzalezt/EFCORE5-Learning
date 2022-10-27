@@ -3,7 +3,7 @@
 There are many ways to query related data but eager loading allows you to use DbSet include method retrieve data and related data in the same call.
  
  ```csharp
- var samuraiWithQuotes = _context.Samurais.Include(s => s.Quotes).ToList;
+ var samuraiWithQuotes = _context.Samurais.Include(s => s.Quotes).ToList();
  ```
  
  With this code EF CORE will perform a `LEFT JOIN` query to retrive all samurai data, there are two possibilities using a single left join or send multiple queries to get the information 

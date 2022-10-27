@@ -100,10 +100,13 @@ var savedQuotes = context.Entry(samurai).
 
 ## Lazy Loading
 
+**Resources**
+
+* [Lazy Loading in Entity Framework](https://www.entityframeworktutorial.net/lazyloading-in-entity-framework.aspx)
+* [Lazy Loading Related Data In Entity Framework Core](https://www.learnentityframeworkcore.com/lazy-loading)
+
 Lazy Loading is easy to accidentally abuse and create performance problems or get unexpected results
 
 By default, Lazy Loading is disabled 
-
-![image](https://user-images.githubusercontent.com/53051438/198180356-f21ef236-2d8f-4b2e-a70a-15338c55c007.png)
 
 ![image](https://user-images.githubusercontent.com/53051438/198180407-bf30f6f1-d297-4c30-98ce-7bea8aa262c0.png)
