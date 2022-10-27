@@ -36,7 +36,7 @@ private static void AddQuoteToExistingSamuraiWhileTracked()
 
 ## Disconnected scenario
 
-Now what happen on a disconnected scenario?
+Now what happens in a disconnected scenario?
 
 ```csharp
 var samurai = _context.Samurais.Find(samuraiId);
@@ -52,11 +52,11 @@ using(var newContext = new SamuraiContext())
 }
 ```
 
-EF CORE know that a samurai is already added because has an ID and determines that the quote is new because doesn't have and ID and assume that the child FK value is the parent's key but there is a problem with this strategy
+EF CORE knows that a samurai is already added because has an ID and determines that the quote is new because doesn't have an ID and assumes that the child's FK value is the parent's key but there is a problem with this strategy
 
 ![image](https://user-images.githubusercontent.com/53051438/197861910-6c205457-87e7-4e61-bab2-5cb440f82649.png)
 
-It's updating the samurai and thats logic because we are inserting the new quote. but this update could be a performance problemm, for that reason there is a new way to add a new quote without updating the samurai.
+It's updating the samurai and that's logical because we are inserting the new quote. but this update could be a performance problem, for that reason, there is a new way to add a new quote without updating the samurai.
 
 DbContext methods
 
@@ -65,7 +65,7 @@ DbContext methods
 * Remove
 * **Attach**
 
-Using the attach method, connects the object and sets its state to unmodified also EF CORE detect the missing key and foreign key and fix that up.
+Using the attach method, connects the object and sets its state to unmodified also EF CORE detects the missing key and foreign key and fixes that up.
 
 ```csharp
 var samurai = _context.Samurais.Find(samuraiId);
@@ -87,7 +87,7 @@ And now there is no update
 
 ![image](https://user-images.githubusercontent.com/53051438/197863273-93db8f4c-0c15-4023-b6b9-0280a19651db.png)
 
-But there more another way that is much simpler than the last options is just using the foreign keys defined on the child object making more easier to perform the insert quote operation
+But there more another way that is much simpler than the last option is just using the foreign keys defined on the child object making more easier to perform the insert quote operation
 
 ```csharp
 public void InsertQuoteToSamurai(int samuraiId)
@@ -99,6 +99,6 @@ public void InsertQuoteToSamurai(int samuraiId)
 }
 ```
 
-using this strategy makes the code more short and easier because we are just adding a new quote without getting the samurai just its ID.
+using this strategy makes the code shorter and easier because we are just adding a new quote without getting the samurai just its ID.
 
 ![image](https://user-images.githubusercontent.com/53051438/197864575-62cf9407-e640-4a24-b8ee-9261ebe73a26.png)

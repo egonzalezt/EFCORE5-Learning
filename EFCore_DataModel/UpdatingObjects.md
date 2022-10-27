@@ -13,7 +13,7 @@ in this example, you get the first samurai store in your database and update it 
 
 ![update](https://user-images.githubusercontent.com/53051438/197415400-7ef44481-3b9f-4db1-a49c-f42b15806ac1.png)
 
-First EF CORE makes a `SELECT` statement to get the samurai and then updates the samurai, but remember Entity Entry? EF CORE uses to track the object changes and perform the required SQL script updating just the required information not all the object just the required part that is the name of the samurai making the query more simple and shorter. 
+First EF CORE makes a `SELECT` statement to get the samurai and then updates the samurai, but remember Entity Entry? EF CORE uses to track the object changes and perform the required SQL script updating just the required information, not all the objects just the required part is the name of the samurai making the query more simple and shorter. 
 
 ## With batch
 
