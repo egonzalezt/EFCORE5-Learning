@@ -8,13 +8,18 @@ This section explains different things that you can do with related data like in
 
 There are many ways to query related data but eager loading allows you to use DbSet include method retrieve data and related data in the same call.
 
-### Methods to Load Related Data
+### [Eager Loading](InteractingWithRelatedData/EagerLoading.md)
 
-* [Eager Loading](https://github.com/egonzalezt/EFCORE5-Learning/blob/1262ae2998e110158a45f53af7fdfab0046c92b4/InteractingWithRelatedData/EagerLoading.md): 
-  Include related objects in query
-* Query Projections: 
-  Define the shape of query results
-* Explicit Loading: 
-  Request related data of objects in memory
-* Lazy Loading: 
-  On-The-Fly retrieval of related data
+### [Explicit N' Lazy Loading](InteractingWithRelatedData/LoadingRelatedData.md)
+
+### [QueryProjections](InteractingWithRelatedData/QueryProjections.md)
+
+### [Filter Objects](InteractingWithRelatedData/FilterObjects.md)
+
+### [Inserting Related Data](InteractingWithRelatedData/InsertingRelatedData.md)
+
+### [Modifying Related Data](InteractingWithRelatedData/ModifyingRelatedData.md)
+
+### [Many-To-Many](InteractingWithRelatedData/ManyToMany.md)
+
+### [One-To-One](InteractingWithRelatedData/OneToOne.md)
