@@ -132,6 +132,23 @@ _context.Samurais.FromSQLInterpolated($"some sql string {var}").ToList();
 _context.Samurais.FromSQLInterpolatedAsync($"some sql string {var}").ToList();
 ```
 
+### Example
+
+* FromSQLRaw
+
+  ```csharp
+  var samurais = _context.Samurais.FromSqlRaw(
+                "Select Id, Name from Samurais").Include(s=>s.Quotes).ToList();
+  ```
+* FromSQLInterpolated
+
+  ```csharp
+  string name = "Kikuchyo";
+  var samurais = _context.Samurais
+      .FromSqlInterpolated($"Select * from Samurais Where Name= {name}")
+      .ToList();
+  ```
+
 ### Raw SQL Limitations
 
 * Must return data for all properties of the entity type
@@ -144,8 +161,19 @@ _context.Samurais.FromSQLInterpolatedAsync($"some sql string {var}").ToList();
     ```csharp
     _context.Samurais.FromSqlRaw("Select Id, Name from Samurais").Include(s=>s.Quotes).ToList();
     ```
-  This strategy cannot be perform on stored procedures
+  This strategy cannot be perform on stored procedures.
 
 ### Take care
 
-It's important when using `FromSqlRaw' to use parameters when doing things like filtering. so you don't have to worry about SQL Injection attacks.
+It's important when using `FromSqlRaw` to use parameters when doing things like filtering. so you don't have to worry about SQL Injection attacks.
+
+Avoid using FromSQLRaw and use interpolation if you made the interpolation EF CORE will raise a new exception `.FromSqlRaw($"Select * from Samurais Where Name= {name}")` but if you add extra quotes to avoid the exception `.FromSqlRaw($"Select * from Samurais Where Name= '{name}'")` **your code are now vulnerable to a new SQL injection.**
+
+**Danger**
+
+```csharp
+string name = "Kikuchyo";
+var samurais = _context.Samurais
+  .FromSqlRaw($"Select * from Samurais Where Name= '{name}'")
+  .ToList();
+```
