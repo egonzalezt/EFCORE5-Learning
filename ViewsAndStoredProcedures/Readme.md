@@ -228,3 +228,46 @@ $"EXEC dbo.SamuraisWhoSaidAWord {text}").ToList();
 ```
 
 running your store procedure you require a value to execute that stored procedure for that reason you need to pass that value directly on the string like this `EXEC dbo.SamuraisWhoSaidAWord {0}` or using a variable `"EXEC dbo.SamuraisWhoSaidAWord {text}"`
+
+## Non Query Raw SQL
+
+It's possible to execute raw SQL to the database for other tasks using `ExecuteSqlRaw` and `ExecuteSqlInterpolated` methods these methods are not DbSet methods they are methods of DbContext this method is already use on migrations wiki to explains how it you can automatically make the migrations and create the database
+
+Database accesses the db configured for the DbContext instance
+
+```csharp
+_context.Samurais.ExecuteSQLRaw("some sql string").ToList();
+_context.Samurais.ExecuteSQLRawAsync("some sql string").ToList();
+_context.Samurais.ExecuteSQLInterpolated($"some sql string {var}").ToList();
+_context.Samurais.ExecuteSQLInterpolatedAsync($"some sql string {var}").ToList();
+```
+
+These methods cannot be use for execute queriesm they not materialize query results the only result you will get back is the number of rows affected by the command
+
+### Example
+
+Delete all quotes by samurai Id, Remember to add this on the migration
+
+```SQL
+CREATE PROCEDURE dbo.DeleteQuotesForSamurai
+  @samuraiId int
+  AS
+  DELETE FROM Quotes
+  WHERE Quotes.SamuraiId=@samuraiId
+```
+
+```csharp
+var samuraiId = 2;
+var affected= _context.Database
+    .ExecuteSqlRaw("EXEC DeleteQuotesForSamurai {0}", samuraiId);
+```
+
+```csharp
+var samuraiId = 2;
+var affected = _context.Database
+  .ExecuteSqlInterpolated($"EXEC DeleteQuotesForSamurai {samuraiId}");
+```
+
+it just return the rows affected
+
+![image](https://user-images.githubusercontent.com/53051438/198641560-08ed5bd9-2664-467c-a3b2-8dd9ae0d9b40.png)
