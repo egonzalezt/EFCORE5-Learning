@@ -31,9 +31,9 @@ Before start follow this structure to understand the folder structure on this do
 * [Data Model](EFCore_DataModel/README.md)
 * [Migrations](Migrations/README.md)
 * [Related Data](InteractingWithRelatedData/README.md)
-* [Power Tools](https://github.com/egonzalezt/EFCORE5-Learning/blob/eea73d32c533250794d4ad59e81a2508b50213e0/PowerTools/README.md)
-* [Views n' Stored Procedures](https://github.com/egonzalezt/EFCORE5-Learning/blob/eea73d32c533250794d4ad59e81a2508b50213e0/ViewsAndStoredProcedures/Readme.md)
-* [Testing](https://github.com/egonzalezt/EFCORE5-Learning/blob/eea73d32c533250794d4ad59e81a2508b50213e0/Testing/Readme.md)
+* [Power Tools](PowerTools/README.md)
+* [Views n' Stored Procedures](ViewsAndStoredProcedures/Readme.md)
+* [Testing](Testing/Readme.md)
 
 ## [What is EF Core?](https://learn.microsoft.com/en-us/ef/core/)
 
