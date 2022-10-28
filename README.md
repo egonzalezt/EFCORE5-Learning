@@ -29,7 +29,7 @@ Before start follow this structure to understand the folder structure on this do
 
 * [Db Relationships](DbRelationships/README.md)
 * [Data Model](EFCore_DataModel/README.md)
-* [Migrations](https://github.com/egonzalezt/EFCORE5-Learning/blob/eea73d32c533250794d4ad59e81a2508b50213e0/Migrations/README.md)
+* [Migrations](Migrations/README.md)
 * [Related Data](https://github.com/egonzalezt/EFCORE5-Learning/blob/eea73d32c533250794d4ad59e81a2508b50213e0/InteractingWithRelatedData/README.md)
 * [Power Tools](https://github.com/egonzalezt/EFCORE5-Learning/blob/eea73d32c533250794d4ad59e81a2508b50213e0/PowerTools/README.md)
 * [Views n' Stored Procedures](https://github.com/egonzalezt/EFCORE5-Learning/blob/eea73d32c533250794d4ad59e81a2508b50213e0/ViewsAndStoredProcedures/Readme.md)
