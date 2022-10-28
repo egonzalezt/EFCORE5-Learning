@@ -90,3 +90,22 @@ public partial class SamuraiBattleStats : Migration
 And now running the migrations EF CORE creates the views and the functions on our database
 
 ![image](https://user-images.githubusercontent.com/53051438/198600720-c051cf33-9e8a-4e9a-bce9-3f1dbd12552d.png)
+
+## Keyless Entities
+
+There is another way to map entities that EF CORE will consider them as read-only, and allows you to map to views and tables that have no Primary key 
+
+By default keyless entities will never tracked by EF CORE and if you setup to be track EF CORE will ignores this instruction.
+
+also can map tables or views with no primary key
+
+to create a keyless entity first you need to create a entity which does not specify any key like SamuraiId, then you need to add into the DbContext as a DbSet and tell to fluent api that the entity is keyless
+
+```csharp
+public DbSet<KeylessEntity> KeylessEntity { get; set; }
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+  modelBuilder.Entity<KeylessEntity>().HasNoKey().ToView("KeylessEntity");
+}
+```
+
