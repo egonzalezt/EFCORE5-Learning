@@ -169,7 +169,7 @@ It's important when using `FromSqlRaw` to use parameters when doing things like 
 
 Avoid using FromSQLRaw and use interpolation if you made the interpolation EF CORE will raise a new exception `.FromSqlRaw($"Select * from Samurais Where Name= {name}")` but if you add extra quotes to avoid the exception `.FromSqlRaw($"Select * from Samurais Where Name= '{name}'")`
 
-⚠️ Warning
+⚠️ **Warning**
 
 Be very careful when using FromSqlRaw, and always make sure values are either from a safe origin, or are properly sanitized. **SQL injection attacks can have disasterous consequences for your application.**
 
