@@ -91,7 +91,7 @@ And now running the migrations EF CORE creates the views and the functions on ou
 
 ![image](https://user-images.githubusercontent.com/53051438/198600720-c051cf33-9e8a-4e9a-bce9-3f1dbd12552d.png)
 
-## Keyless Entities
+## [Keyless Entities](https://learn.microsoft.com/en-us/ef/core/modeling/keyless-entity-types)
 
 There is another way to map entities that EF CORE will consider them as read-only, and allows you to map to views and tables that have no Primary key 
 
