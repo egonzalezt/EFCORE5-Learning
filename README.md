@@ -15,6 +15,10 @@ The objective of this wiki is to document all the related information about enti
 
 * [Entity Framework Core 5.0](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore/5.0.17)
 
+* [EntityFrameworkCore Design](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Design/5.0.17)
+
+* [EntityFrameworkCore Tools](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools/5.0.17)
+
 * [SQL SERVER EXPRESS](https://www.microsoft.com/es-es/sql-server/sql-server-downloads) (You can use any Database Engine if the engine provide it's own library for EF CORE)
 
   * [SQL SERVER EF CORE PACKAGE](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/5.0.17)
