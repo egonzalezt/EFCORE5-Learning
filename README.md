@@ -9,11 +9,15 @@ The objective of this wiki is to document all the related information about enti
 * Entity Framework Version 5.0
 * Microsoft Visual Studio 2022
 * C#
-* Database Engine (this wiki use [SQL SERVER EXPRESS](https://www.microsoft.com/es-es/sql-server/sql-server-downloads))
+* Database Engine (this wiki use SQL SERVER EXPRESS)
 
 ## Setup
 
-* [Install .NET 5.0](https://dotnet.microsoft.com/en-us/download/dotnet/5.0)
+* [Entity Framework Core 5.0](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore/5.0.17)
+
+* [SQL SERVER EXPRESS](https://www.microsoft.com/es-es/sql-server/sql-server-downloads) (You can use any Database Engine if the engine provide it's own library for EF CORE)
+
+* [Microsoft .NET 5.0](https://dotnet.microsoft.com/en-us/download/dotnet/5.0)
 
 * [Visual Studio 2022](https://visualstudio.microsoft.com/vs)
 
