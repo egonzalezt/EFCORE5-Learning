@@ -10,3 +10,6 @@ EF CORE Allows you to work directly with
 * Table view Functions
 * Map to queries in DbContext
   using this strategy you can use your own queries instead of EF CORE build that query
+
+# Using views and other Database Object with migrations
+
