@@ -1,4 +1,4 @@
-# Views and Stored Procedures
+# [Views and Stored Procedures](https://learn.microsoft.com/en-us/ef/core/querying/sql-queries)
 
 EF CORE has the ability to execute raw SQL na stored procedures and map to database views making easy to query read-only data.
 
@@ -167,7 +167,11 @@ _context.Samurais.FromSQLInterpolatedAsync($"some sql string {var}").ToList();
 
 It's important when using `FromSqlRaw` to use parameters when doing things like filtering. so you don't have to worry about SQL Injection attacks.
 
-Avoid using FromSQLRaw and use interpolation if you made the interpolation EF CORE will raise a new exception `.FromSqlRaw($"Select * from Samurais Where Name= {name}")` but if you add extra quotes to avoid the exception `.FromSqlRaw($"Select * from Samurais Where Name= '{name}'")` **your code are now vulnerable to a new SQL injection.**
+Avoid using FromSQLRaw and use interpolation if you made the interpolation EF CORE will raise a new exception `.FromSqlRaw($"Select * from Samurais Where Name= {name}")` but if you add extra quotes to avoid the exception `.FromSqlRaw($"Select * from Samurais Where Name= '{name}'")`
+
+⚠️ Warning
+
+Be very careful when using FromSqlRaw, and always make sure values are either from a safe origin, or are properly sanitized. **SQL injection attacks can have disasterous consequences for your application.**
 
 **Danger**
 
@@ -177,3 +181,50 @@ var samurais = _context.Samurais
   .FromSqlRaw($"Select * from Samurais Where Name= '{name}'")
   .ToList();
 ```
+
+## Stored Procedures
+
+You can also run Stored Procedures by making a new migration and adding your stored procedures using `migrationBuilder.Sql("Your SQL Stored Procedure")`
+
+```csharp
+public partial class newsprocs : Migration
+{
+  protected override void Up(MigrationBuilder migrationBuilder)
+  {
+      migrationBuilder.Sql(
+       @"CREATE PROCEDURE dbo.SamuraisWhoSaidAWord
+         @text VARCHAR(20)
+         AS
+         SELECT      Samurais.Id, Samurais.Name
+         FROM        Samurais INNER JOIN
+                     Quotes ON Samurais.Id = Quotes.SamuraiId
+         WHERE      (Quotes.Text LIKE '%'+@text+'%')");
+      migrationBuilder.Sql(
+        @"CREATE PROCEDURE dbo.DeleteQuotesForSamurai
+          @samuraiId int
+          AS
+          DELETE FROM Quotes
+          WHERE Quotes.SamuraiId=@samuraiId");
+  }
+  protected override void Down(MigrationBuilder migrationBuilder)
+  {
+  }
+}
+```
+
+Run the migration and create a Raw SQL to execute your stored procedure
+
+```csharp
+
+var text = "Happy";
+var samurais = _context.Samurais.FromSqlRaw(
+"EXEC dbo.SamuraisWhoSaidAWord {0}", text).ToList();
+```
+
+```csharp
+var text = "Happy";
+var samurais = _context.Samurais.FromSqlInterpolated(
+$"EXEC dbo.SamuraisWhoSaidAWord {text}").ToList();
+```
+
+running your store procedure you require a value to execute that stored procedure for that reason you need to pass that value directly on the string like this `EXEC dbo.SamuraisWhoSaidAWord {0}` or using a variable `"EXEC dbo.SamuraisWhoSaidAWord {text}"`
