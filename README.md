@@ -2,6 +2,8 @@
 
 The objective of this wiki is to document all the related information about entity framework core 5.0 
 
+[Official Docs](https://learn.microsoft.com/en-us/ef/)
+
 ## Requirements
 
 * Entity Framework Version 5.0
@@ -21,7 +23,19 @@ The objective of this wiki is to document all the related information about enti
 * Get EF Core to see your db logic
 * EF Core and ASP.NET Core app testing
 
-## What is EF Core?
+### Guide
+
+Before start follow this structure to understand the folder structure on this docs
+
+* [Db Relationships](https://github.com/egonzalezt/EFCORE5-Learning/blob/eea73d32c533250794d4ad59e81a2508b50213e0/DbRelationships/README.md)
+* [Data Model](https://github.com/egonzalezt/EFCORE5-Learning/blob/eea73d32c533250794d4ad59e81a2508b50213e0/EFCore_DataModel/README.md)
+* [Migrations](https://github.com/egonzalezt/EFCORE5-Learning/blob/eea73d32c533250794d4ad59e81a2508b50213e0/Migrations/README.md)
+* [Related Data](https://github.com/egonzalezt/EFCORE5-Learning/blob/eea73d32c533250794d4ad59e81a2508b50213e0/InteractingWithRelatedData/README.md)
+* [Power Tools](https://github.com/egonzalezt/EFCORE5-Learning/blob/eea73d32c533250794d4ad59e81a2508b50213e0/PowerTools/README.md)
+* [Views n' Stored Procedures](https://github.com/egonzalezt/EFCORE5-Learning/blob/eea73d32c533250794d4ad59e81a2508b50213e0/ViewsAndStoredProcedures/Readme.md)
+* [Testing](https://github.com/egonzalezt/EFCORE5-Learning/blob/eea73d32c533250794d4ad59e81a2508b50213e0/Testing/Readme.md)
+
+## [What is EF Core?](https://learn.microsoft.com/en-us/ef/core/)
 
 Microsoft's official cross-platform data access framework for .NET
 
@@ -31,7 +45,6 @@ ORM infers that classes or objects have a similar structure EF CORE has a mappin
 
 EF CORE can be connected with a lot of different database providers like Mariadb, Mysql, MS SQL, PostgresSQL, etc. 
 
-
-# Suggestions? 
+## Suggestions? 
 
 Feel free to make PR with new suggestions or recommendations about this documentation. Any recommendation will be received and analyzed thanks :)
