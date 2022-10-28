@@ -39,6 +39,19 @@ var samurais = _context.Samurais
 
 EF CORE adds a double dash to add these comments so you don't have to worry about a SQL injection attack.
 
+## [Query Work Flow](EFCore_DataModel/QueryWorkflow.md)
+
+## [Filtering Queries](EFCore_DataModel/FilteringQueries.md)
+
+## [Updating Objects](EFCore_DataModel/UpdatingObjects.md)
+
+## [Deleting Objects](EFCore_DataModel/DeletingObjects.md)
+
+## [Bulk Operations](EFCore_DataModel/BulkOperations.md)
+
+## [Disconnected Scenarios](EFCore_DataModel/DisconnectedScenarios.md)
+
+
 ## Logging 
 
 Now using profiling tools like SQL Server Profiler is not always a good option but EF CORE can log their queries using .NET CORE: Microsoft.Extensions.Logging. Now the reason to add logging to .NET is to track and keep control of how EF CORE Build the different queries because if you have a battle of samurais with 1.000.000 or more samurais and you need just to get samurais with some characteristics is not a good idea that EF CORE create queries like this:
