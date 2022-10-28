@@ -27,7 +27,7 @@ The objective of this wiki is to document all the related information about enti
 
 Before start follow this structure to understand the folder structure on this docs
 
-* [Db Relationships](https://github.com/egonzalezt/EFCORE5-Learning/blob/eea73d32c533250794d4ad59e81a2508b50213e0/DbRelationships/README.md)
+* [Db Relationships](DbRelationships/README.md)
 * [Data Model](https://github.com/egonzalezt/EFCORE5-Learning/blob/eea73d32c533250794d4ad59e81a2508b50213e0/EFCore_DataModel/README.md)
 * [Migrations](https://github.com/egonzalezt/EFCORE5-Learning/blob/eea73d32c533250794d4ad59e81a2508b50213e0/Migrations/README.md)
 * [Related Data](https://github.com/egonzalezt/EFCORE5-Learning/blob/eea73d32c533250794d4ad59e81a2508b50213e0/InteractingWithRelatedData/README.md)
