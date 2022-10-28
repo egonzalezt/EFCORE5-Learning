@@ -9,6 +9,7 @@ The objective of this wiki is to document all the related information about enti
 * Entity Framework Version 5.0
 * Microsoft Visual Studio 2022
 * C#
+* Database Engine (this wiki use [SQL SERVER EXPRESS](https://www.microsoft.com/es-es/sql-server/sql-server-downloads))
 
 ## Setup
 
