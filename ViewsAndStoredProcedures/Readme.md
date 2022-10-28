@@ -109,3 +109,43 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 }
 ```
 
+### Take care
+
+Now our `KeylessEntity` is added as a DbSet C# compilar will threats as a normal entity with key and we know that this entity does not have any key
+
+methods like
+
+```csharp
+_context.KeylessEntity.Find(2)
+```
+
+The compiler will not trigger any alert but at execution EF CORE will raise a new exception.
+
+## Working with Raw SQL
+
+You can execute Raw SQL methods from your contexts:
+
+```csharp
+_context.Samurais.FromSQLRaw("some sql string").ToList();
+_context.Samurais.FromSQLRawAsync("some sql string").ToList();
+_context.Samurais.FromSQLInterpolated($"some sql string {var}").ToList();
+_context.Samurais.FromSQLInterpolatedAsync($"some sql string {var}").ToList();
+```
+
+### Raw SQL Limitations
+
+* Must return data for all properties of the entity type
+  `Select Name from samurais` will raise a new exception
+* Column names in results match mapped column names
+* Query can't contain related data
+* Only query entities and keyless entities know by DbContext
+  If you return a entity that is not define on the DbSet EF CORE will raise a new exception, and also you can't select navegation properties in SQL
+  to make this you need to do:
+    ```csharp
+    _context.Samurais.FromSqlRaw("Select Id, Name from Samurais").Include(s=>s.Quotes).ToList();
+    ```
+  This strategy cannot be perform on stored procedures
+
+### Take care
+
+It's important when using `FromSqlRaw' to use parameters when doing things like filtering. so you don't have to worry about SQL Injection attacks.
