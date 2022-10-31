@@ -94,3 +94,36 @@ This provider emulates to be a relational database
 * Great alternative for test mock
 
 * Requires mods to our existing solution
+
+You need to add the package `Microsoft.EntityFrameworkCore.InMemory` then made some changes to the context.
+
+first, we are making the context more flexible enough to let you determine which provider to use when instantiating the constructor elsewhere.
+
+```csharp
+public EfcoreContext(DbContextOptions opt)
+    : base(opt)
+{ }
+```
+
+Then add the default constructor because this is going to be used by the SQL Server provider, which overrides the constructor inherited from the object class.
+
+```csharp
+public EfcoreContext()
+{ }
+```
+
+Finally, use the options builder to have more flexibility so if in our tests we add a in-memory database the code will omit the configuration of our normal database this will cause that we don't need to modify our connection string 
+
+```csharp
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+{
+    if(!optionsBuilder.IsConfigured)
+    {
+        optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=SamuraiDb;Trusted_Connection=True;",
+                options => options.MaxBatchSize(150))
+                .LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }, LogLevel.Information);
+    }
+}
+```
+
+### Build your first In-Memory database tests

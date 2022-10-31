@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\esteb\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\esteb\\.nuget\\packages"
+    ]
+  }
+}

@@ -78,7 +78,7 @@ namespace EfcoreApp.Infrastructure.Migrations
                     b.HasIndex("SamuraiId")
                         .IsUnique();
 
-                    b.ToTable("Horse");
+                    b.ToTable("Horses");
                 });
 
             modelBuilder.Entity("EfcoreApp.Domain.Quote", b =>
@@ -114,6 +114,20 @@ namespace EfcoreApp.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Samurais");
+                });
+
+            modelBuilder.Entity("EfcoreApp.Domain.SamuraiBattleStat", b =>
+                {
+                    b.Property<string>("EarliestBattle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("NumberOfBattles")
+                        .HasColumnType("int");
+
+                    b.ToView("SamuraiBattleStats");
                 });
 
             modelBuilder.Entity("EfcoreApp.Domain.BattleSamurai", b =>
