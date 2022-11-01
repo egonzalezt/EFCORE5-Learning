@@ -44,7 +44,7 @@ by default EF CORE SQL server provider has a max Batch size of 42 and a minimum 
 
 * Additional Commands will be sent in extra batches.
 
-    For example, if the commands exceeds the SQL server's maximum batch size of 42 if your query exceeds that number it breaks the commands into batches.
+    For example, if the commands exceed the SQL server's maximum batch size of 42 if your query exceeds that number it breaks the commands into batches.
 
 * Override batch size in DbContext OnConfiguring
 

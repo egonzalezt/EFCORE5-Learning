@@ -49,7 +49,7 @@ Ways to disable tracking
 
 * On DbContext
 
-    All queries on SamuraiContextNoTracking will default to no tracking use DbSet.AsTracking() for special queries to be tracked
+    All queries on SamuraiContextNoTracking will default to no tracking using DbSet.AsTracking() for special queries to be tracked
 
     ```csharp
     public class SamuraiContextNoTracking : SamuraiContext
@@ -63,7 +63,7 @@ Ways to disable tracking
     }
     ```
 
-    Note: using the SamuraiContextNoTracking class will keep all the mappings, logging and other configuration made on the original dbcontext.
+    Note: using the SamuraiContextNoTracking class will keep all the mappings, logging and other configuration made on the original DbContext.
 
 ### Example
 

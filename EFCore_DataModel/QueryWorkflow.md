@@ -58,7 +58,7 @@ foreach(var s in _context.Samurais)
 }
 ```
 
-at the beginning of this execution the database gets opened and until the operations inside the brackets is not complete the confection still open until the enumeration is complete and all the results have been streamed back.
+at the beginning of this execution the database gets opened and until the operations inside the brackets are not complete the confection is still open until the enumeration is complete and all the results have been streamed back.
 
 ### Considerations
 
