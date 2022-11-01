@@ -1,5 +1,7 @@
 # Best Practices
 
+[Recommended video](https://youtu.be/qkJ9keBmQWo)
+
 During these different wiki sections you discover different ways to create queries, make CRUD operations and use other operations like selecting specific parameters or custom data, filtering, bulk operations or just working with RAW SQL, stored procedures, etc.
 
 Now these are some suggested recommendations for implementing EF CORE
