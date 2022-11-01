@@ -45,6 +45,7 @@ Before start follow this structure to understand the folder structure on this do
 * [Power Tools](PowerTools/README.md)
 * [Views n' Stored Procedures](ViewsAndStoredProcedures/Readme.md)
 * [Testing](Testing/Readme.md)
+* [Best Practices](BestPractices/Readme.md)
 
 ## [What is EF Core?](https://learn.microsoft.com/en-us/ef/core/)
 
